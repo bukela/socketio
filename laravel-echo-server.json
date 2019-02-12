@@ -23,9 +23,9 @@
 		"redis": true
 	},
 	"apiOriginAllow": {
-		"allowCors": false,
+		"allowCors": true,
 		"allowOrigin": "",
-		"allowMethods": "",
-		"allowHeaders": ""
+		"allowMethods": "GET, POST, PATCH, DELETE",
+		"allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
 	}
 }
