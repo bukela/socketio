@@ -5,11 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <script>
-        window.Laravel = {!! json_encode([
-            'user' => auth()->check() ? auth()->user()->id : null,
-        ]) !!};
-        </script>
+        
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -92,15 +88,20 @@
         </div>
         <script src="js/app.js"></script>
         <script>
+            window.Laravel = {!! json_encode([
+                'user' => auth()->check() ? auth()->user()->id : null,
+            ]) !!};
+            </script>
+        <script>
             window.Echo.channel('test-event')
             .listen('ExampleEvent', (e) => {
                 console.log(e);
             });
 
-            // window.Echo.private('user.' + window.Laravel.user)
-            // .listen('PrivateEvent', (e) => {
-            //     console.log(e);
-            // });
+            window.Echo.private('user.' + window.Laravel.user)
+            .listen('PrivateEvent', (e) => {
+                console.log(e);
+            });
         </script>
     </body>
 </html>

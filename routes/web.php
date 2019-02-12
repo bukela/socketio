@@ -26,5 +26,5 @@ Route::get('test-broadcast', function(){
 });
 
 Route::get('private-broadcast', function(){
-    broadcast(new \App\Events\PrivateEvent(Auth::user()));
+    broadcast(new \App\Events\PrivateEvent(auth()->user()));
 });

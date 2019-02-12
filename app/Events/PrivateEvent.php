@@ -41,7 +41,8 @@ class PrivateEvent implements ShouldBroadcast
     public function broadcastWith() {
 
         return [
-            'data' => 'key'
+            'data' => 'key',
+            'user' => $this->user
         ];
 
     }
