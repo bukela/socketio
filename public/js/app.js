@@ -1859,14 +1859,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   data: function data() {
     return {
+      messages: [],
       message: ''
     };
+  },
+  methods: {
+    ally: function ally() {
+      if (this.message.length > 0) {
+        this.messages.push(this.message);
+        this.message = '';
+      } else {
+        alert('message field empty');
+      }
+    },
+    del: function del() {
+      this.messages = '';
+    }
   }
 });
 
@@ -46516,7 +46534,13 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c("p", [_vm._v(_vm._s(_vm.message))]),
+            _c(
+              "ul",
+              _vm._l(_vm.messages, function(message) {
+                return _c("li", { key: message.id }, [_vm._v(_vm._s(message))])
+              }),
+              0
+            ),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -46530,6 +46554,15 @@ var render = function() {
               attrs: { type: "text" },
               domProps: { value: _vm.message },
               on: {
+                keyup: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.ally($event)
+                },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -46537,7 +46570,11 @@ var render = function() {
                   _vm.message = $event.target.value
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.ally } }, [_vm._v("+")]),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.del } }, [_vm._v("x")])
           ])
         ])
       ])
