@@ -19,6 +19,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $appends = ['full_user'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -27,4 +29,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'created_at'
     ];
+
+    function getFullUserAttribute() {
+
+        return $this->name.'___'.$this->email;
+
+    }
 }

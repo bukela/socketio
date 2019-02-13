@@ -66,6 +66,7 @@
         </style>
     </head>
     <body>
+        {{-- {{ dd(App\User::find(1)->toArray()) }} --}}
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

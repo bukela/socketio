@@ -22,8 +22,8 @@ class ExampleBroadcastChannel
      * @param  \App\User  $user
      * @return array|bool
      */
-    public function join(User $user)
+    public function join(User $user, Team $team)
     {
-        //
+        return $user->teams()->find($teamId) ? true : false;
     }
 }
