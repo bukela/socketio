@@ -1883,7 +1883,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     del: function del() {
-      this.messages = '';
+      this.messages = [];
     }
   }
 });

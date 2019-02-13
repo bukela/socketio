@@ -1,5 +1,7 @@
 <?php
 
+use App\Broadcasting\ExampleBroadcastChannel;
+
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -18,3 +20,5 @@
 Broadcast::channel('user.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('teams.{team}', ExampleBroadcastChannel::class);

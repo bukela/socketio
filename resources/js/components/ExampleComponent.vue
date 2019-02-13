@@ -41,7 +41,7 @@
                 
             },
             del: function() {
-                this.messages = ''
+                this.messages = []
             }
         },
     }
