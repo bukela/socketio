@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/send', 'ChatController@send_message');
+
 Route::get('test-broadcast', function(){
     broadcast(new \App\Events\ExampleEvent('broadcasting zvizzz', Auth::user()));
 });
