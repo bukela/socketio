@@ -103,6 +103,13 @@
             .listen('PrivateEvent', (e) => {
                 console.log(e);
             });
+
+            // window.Echo.channel('chat-room.1')
+            //     .listen('ChatMessageWasReceived', (e) => {
+            //     // console.log('message : ' + e.message.content, 'user name : '+ e.user.name);
+            //     this.messages.push(e.message.content);
+            //     console.log(e.message);
+            // });
         </script>
     </body>
 </html>

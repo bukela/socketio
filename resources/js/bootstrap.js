@@ -64,6 +64,12 @@ window.Echo = new Echo({
     host: window.location.hostname + ':6001'
 });
 
+window.Echo.channel('chat-room.1')
+        .listen('ChatMessageWasReceived', (e) => {
+        // console.log('message : ' + e.message.content, 'user name : '+ e.user.name);
+        console.log(e.message);
+    });
+
 // window.Echo.channel('test-event')
 //     .listen('ExampleEvent', (e) => {
 //         console.log(e);
